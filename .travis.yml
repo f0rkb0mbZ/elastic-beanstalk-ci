@@ -1,4 +1,6 @@
+language: generic
 sudo: required
+
 services:
     - docker
 
@@ -6,7 +8,7 @@ before_install:
     - docker build -t drake666/elastic-beanstalk-ci -f Dockerfile.dev .
 
 script:
-    - docker run -e CI=true drake666/elastic-beanstalk-ci npm run test -- --coverage
+    - docker run -e CI=true drake666/elastic-beanstalk-ci npm run test
 
 deploy:
     provider: elasticbeanstalk
